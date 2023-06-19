@@ -1,9 +1,10 @@
 import { ContainerHeader } from './styled'
+import logo from '../../../../assets/logo-header.png'
 
 export const Header = () => {
   return (
     <ContainerHeader>
-      <h1>Header</h1>
+      <img src={logo} />
     </ContainerHeader>
   )
 }
