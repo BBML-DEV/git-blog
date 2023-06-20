@@ -5,15 +5,13 @@ import { Router } from './shared/router'
 import { BrowserRouter } from 'react-router-dom'
 
 function App() {
-  console.log(defaultTheme)
-
   return (
     <>
       <BrowserRouter>
         <ThemeProvider theme={defaultTheme}>
           <GlobalStyles />
+          <Router />
         </ThemeProvider>
-        <Router />
       </BrowserRouter>
     </>
   )

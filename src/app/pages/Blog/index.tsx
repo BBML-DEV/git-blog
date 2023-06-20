@@ -1,7 +1,10 @@
+import { Profile } from './components/Profile'
+import { BlogContainer } from './styled'
+
 export const Blog = () => {
   return (
-    <div>
-      <h1>blog</h1>
-    </div>
+    <BlogContainer className="container">
+      <Profile />
+    </BlogContainer>
   )
 }
