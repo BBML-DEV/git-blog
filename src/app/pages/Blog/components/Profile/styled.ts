@@ -11,7 +11,6 @@ export const ProfileContainer = styled.div`
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
   border-radius: 0.625rem;
   background-color: ${({ theme }) => theme.colors['base-profile']};
-  position: absolute;
   margin-top: -100px;
   padding: 0 32px;
 

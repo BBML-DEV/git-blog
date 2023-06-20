@@ -14,7 +14,7 @@ export const GlobalStyles = createGlobalStyle`
         background-color: ${({ theme }) => theme.colors['base-background']};
     }
 
-    body, input-security, textarea, button {
+    body, input, textarea, button {
         font: 400 ${({ theme }) =>
           theme.textSizes['text-text-m']}, "Nunito, sans-serif";
         line-height: 160%;
