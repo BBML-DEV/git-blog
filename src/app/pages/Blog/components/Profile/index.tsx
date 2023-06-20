@@ -10,7 +10,6 @@ import {
   TittleText,
 } from '../../../../shared/components/Typograph/styled'
 import { InfoWithIcon } from '../../../../shared/components/InfoWithIcon'
-
 import {
   faArrowUpRightFromSquare,
   faBuilding,
@@ -18,7 +17,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
-import { text } from '@fortawesome/fontawesome-svg-core'
 
 export const Profile = () => {
   return (
