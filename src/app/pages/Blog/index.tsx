@@ -1,3 +1,4 @@
+import { PostContainer } from './components/PostContainer'
 import { Profile } from './components/Profile'
 import { Search } from './components/Search'
 import { BlogContainer } from './styled'
@@ -7,6 +8,7 @@ export const Blog = () => {
     <BlogContainer className="container">
       <Profile />
       <Search />
+      <PostContainer />
     </BlogContainer>
   )
 }
