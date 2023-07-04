@@ -18,6 +18,21 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
+const BagdesProfileInfo = [
+  {
+    icon: <FontAwesomeIcon icon={faGithub} />,
+    text: 'cameronwll',
+  },
+  {
+    icon: <FontAwesomeIcon icon={faBuilding} />,
+    text: 'Rocketseat',
+  },
+  {
+    icon: <FontAwesomeIcon icon={faUserGroup} />,
+    text: '32 seguidores',
+  },
+]
+
 export const Profile = () => {
   return (
     <ProfileContainer>
@@ -43,18 +58,9 @@ export const Profile = () => {
         </RegularText>
 
         <BadgesContainer>
-          <InfoWithIcon
-            icon={<FontAwesomeIcon icon={faGithub} />}
-            text={'cameronwll'}
-          />
-          <InfoWithIcon
-            icon={<FontAwesomeIcon icon={faBuilding} />}
-            text="Rocketseat"
-          />
-          <InfoWithIcon
-            icon={<FontAwesomeIcon icon={faUserGroup} />}
-            text={'32 seguidores'}
-          />
+          {BagdesProfileInfo.map(({ icon, text }) => (
+            <InfoWithIcon key={text} icon={icon} text={text} />
+          ))}
         </BadgesContainer>
       </InfoProfileContainer>
     </ProfileContainer>
