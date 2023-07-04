@@ -49,5 +49,8 @@ export const BadgesContainer = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 1.5rem;
+`
+
+export const BagdesProfileContainer = styled(BadgesContainer)`
   padding-bottom: 1.938rem;
 `

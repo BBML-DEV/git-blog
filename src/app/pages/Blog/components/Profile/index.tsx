@@ -1,5 +1,5 @@
 import {
-  BadgesContainer,
+  BagdesProfileContainer,
   InfoProfileContainer,
   NameContainer,
   ProfileContainer,
@@ -18,7 +18,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
-const BagdesProfileInfo = [
+const BagdesProfileData = [
   {
     icon: <FontAwesomeIcon icon={faGithub} />,
     text: 'cameronwll',
@@ -57,11 +57,11 @@ export const Profile = () => {
           pulvinar vel mass.
         </RegularText>
 
-        <BadgesContainer>
-          {BagdesProfileInfo.map(({ icon, text }) => (
+        <BagdesProfileContainer>
+          {BagdesProfileData.map(({ icon, text }) => (
             <InfoWithIcon key={text} icon={icon} text={text} />
           ))}
-        </BadgesContainer>
+        </BagdesProfileContainer>
       </InfoProfileContainer>
     </ProfileContainer>
   )
