@@ -6,6 +6,7 @@ export const ProfileContainer = styled(DefaultInfoContainer)`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  height: 13.25rem;
 
   > div:first-child {
     padding-left: 8px;
@@ -44,13 +45,13 @@ export const NameContainer = styled.div`
   }
 `
 
-export const BadgesContainer = styled.div`
+export const BadgesContainerDefault = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 1.5rem;
 `
 
-export const BagdesProfileContainer = styled(BadgesContainer)`
+export const BagdesProfileContainer = styled(BadgesContainerDefault)`
   padding-bottom: 1.938rem;
 `
