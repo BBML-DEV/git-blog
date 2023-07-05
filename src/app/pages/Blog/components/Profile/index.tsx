@@ -16,6 +16,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { useBlog } from '../../../../shared/hooks/useContext'
+import { Link } from 'react-router-dom'
 
 export interface profileData {
   name: string
@@ -39,10 +40,12 @@ export const Profile = () => {
           <TittleText size="l" weight={700} color="title">
             {dados.name}
           </TittleText>
-          <RegularText size="s">
-            <a href="#">GITHUB </a>
-            <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-          </RegularText>
+          <Link to={'https://github.com/BBML-DEV'}>
+            <div>
+              <RegularText size="s"> GITHUB</RegularText>
+              <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+            </div>
+          </Link>
         </NameContainer>
 
         <RegularText size="m" color="text">

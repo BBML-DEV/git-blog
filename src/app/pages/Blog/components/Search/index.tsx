@@ -3,12 +3,11 @@ import {
   TittleText,
 } from '../../../../shared/components/Typograph/styled'
 import { SearchContainer } from './styled'
-
-// interface SearchProps {
-//   quantityPublication: number
-// }
+import { useBlog } from '../../../../shared/hooks/useContext'
 
 export const Search = () => {
+  const { issues } = useBlog()
+
   return (
     <SearchContainer>
       <div>
@@ -16,7 +15,9 @@ export const Search = () => {
           Publicações
         </TittleText>
         <RegularText size="s" color="span">
-          6 Publicações
+          {issues.length > 1
+            ? `${issues.length} Publicações`
+            : `${issues.length} Publicação`}
         </RegularText>
       </div>
 

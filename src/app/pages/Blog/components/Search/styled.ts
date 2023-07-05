@@ -25,6 +25,7 @@ export const SearchContainer = styled.div`
     border: 1px solid ${({ theme }) => theme.colors['base-border']};
     outline: none;
     color: ${({ theme }) => theme.colors['base-text']};
+    transition: 0.4s;
 
     &::placeholder {
       font-size: ${({ theme }) => theme.textSizes['text-text-m']};

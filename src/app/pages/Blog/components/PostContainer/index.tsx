@@ -1,15 +1,18 @@
+import { Link } from 'react-router-dom'
+import { useBlog } from '../../../../shared/hooks/useContext'
 import { CardPost } from './components/CardPost'
 import { PostsBlogContainer } from './styled'
 
 export const PostContainer = () => {
+  const { issues } = useBlog()
+
   return (
     <PostsBlogContainer>
-      <CardPost />
-      <CardPost />
-      <CardPost />
-      <CardPost />
-      <CardPost />
-      <CardPost />
+      {issues.map((issue) => (
+        <Link key={issue.id} to={issue.html_url}>
+          <CardPost title={issue.title} body={issue.body} />
+        </Link>
+      ))}
     </PostsBlogContainer>
   )
 }

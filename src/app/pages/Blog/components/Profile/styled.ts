@@ -38,12 +38,19 @@ export const NameContainer = styled.div`
     padding-bottom: 0.5rem;
   }
 
-  a {
-    color: ${({ theme }) => theme.colors['brand-blue']};
-  }
+  div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
 
-  svg {
-    color: ${({ theme }) => theme.colors['brand-blue']};
+    p {
+      color: ${({ theme }) => theme.colors['brand-blue']};
+    }
+
+    svg {
+      color: ${({ theme }) => theme.colors['brand-blue']};
+    }
   }
 `
 

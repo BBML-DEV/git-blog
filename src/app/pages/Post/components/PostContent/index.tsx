@@ -1,11 +1,22 @@
 import { RegularText } from '../../../../shared/components/Typograph/styled'
+import { useBlog } from '../../../../shared/hooks/useContext'
 import {
   PostContentCode,
   PostContentContainer,
   PostContentDescription,
 } from './styled'
 
+export interface issuesProps {
+  id: string
+  title: string
+  body: string
+  html_url: string
+  comments: number
+}
+
 export const PostContent = () => {
+  const { issues } = useBlog()
+
   return (
     <PostContentContainer>
       <PostContentDescription>
