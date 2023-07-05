@@ -11,6 +11,8 @@ export const ProfileContainer = styled(DefaultInfoContainer)`
   > div:first-child {
     padding-left: 8px;
     img {
+      width: 148px;
+      height: 148px;
       border-radius: 8px;
     }
   }

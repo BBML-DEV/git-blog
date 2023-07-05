@@ -4,7 +4,6 @@ import {
   NameContainer,
   ProfileContainer,
 } from './styled'
-import avatar from '../../../../../assets/avatar.png'
 import {
   RegularText,
   TittleText,
@@ -12,38 +11,33 @@ import {
 import { InfoWithIcon } from '../../../../shared/components/InfoWithIcon'
 import {
   faArrowUpRightFromSquare,
-  faBuilding,
   faUserGroup,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { useBlog } from '../../../../shared/hooks/useContext'
 
-const BagdesProfileData = [
-  {
-    icon: <FontAwesomeIcon icon={faGithub} />,
-    text: 'cameronwll',
-  },
-  {
-    icon: <FontAwesomeIcon icon={faBuilding} />,
-    text: 'Rocketseat',
-  },
-  {
-    icon: <FontAwesomeIcon icon={faUserGroup} />,
-    text: '32 seguidores',
-  },
-]
+export interface profileData {
+  name: string
+  avatar_url: string
+  bio: string
+  login: string
+  following: number
+}
 
 export const Profile = () => {
+  const { dados } = useBlog()
+
   return (
     <ProfileContainer>
       <div>
-        <img src={avatar} alt="" />
+        <img src={dados.avatar_url} alt="" />
       </div>
 
       <InfoProfileContainer>
         <NameContainer>
           <TittleText size="l" weight={700} color="title">
-            Cameron Williamson
+            {dados.name}
           </TittleText>
           <RegularText size="s">
             <a href="#">GITHUB </a>
@@ -52,15 +46,18 @@ export const Profile = () => {
         </NameContainer>
 
         <RegularText size="m" color="text">
-          Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-          viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat
-          pulvinar vel mass.
+          {dados.bio}
         </RegularText>
 
         <BagdesProfileContainer>
-          {BagdesProfileData.map(({ icon, text }) => (
-            <InfoWithIcon key={text} icon={icon} text={text} />
-          ))}
+          <InfoWithIcon
+            icon={<FontAwesomeIcon icon={faGithub} />}
+            text={dados.login}
+          />
+          <InfoWithIcon
+            icon={<FontAwesomeIcon icon={faUserGroup} />}
+            text={`${dados.following} seguidores`}
+          />
         </BagdesProfileContainer>
       </InfoProfileContainer>
     </ProfileContainer>

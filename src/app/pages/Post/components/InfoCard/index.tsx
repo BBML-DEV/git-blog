@@ -2,38 +2,27 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { InfoCardLinks, InfoCardContainer } from './styled'
 import {
   faArrowUpRightFromSquare,
-  faCalendarDay,
   faChevronLeft,
-  faComment,
 } from '@fortawesome/free-solid-svg-icons'
 import { TittleText } from '../../../../shared/components/Typograph/styled'
 import { BadgesContainerDefault } from '../../../Blog/components/Profile/styled'
 import { InfoWithIcon } from '../../../../shared/components/InfoWithIcon'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
-
-const BagdesPostData = [
-  {
-    icon: <FontAwesomeIcon icon={faGithub} />,
-    text: 'cameronwll',
-  },
-  {
-    icon: <FontAwesomeIcon icon={faCalendarDay} />,
-    text: 'Há 1 dia',
-  },
-  {
-    icon: <FontAwesomeIcon icon={faComment} />,
-    text: '5 comentários',
-  },
-]
+import { NavLink } from 'react-router-dom'
+import { useBlog } from '../../../../shared/hooks/useContext'
 
 export const InfoCard = () => {
+  const { dados } = useBlog()
+
   return (
     <InfoCardContainer>
       <InfoCardLinks>
-        <div>
-          <FontAwesomeIcon icon={faChevronLeft} />
-          <p>voltar</p>
-        </div>
+        <NavLink to={'/'}>
+          <div>
+            <FontAwesomeIcon icon={faChevronLeft} />
+            <p>voltar</p>
+          </div>
+        </NavLink>
 
         <div>
           <p>Ver no github</p>
@@ -46,9 +35,10 @@ export const InfoCard = () => {
       </TittleText>
 
       <BadgesContainerDefault>
-        {BagdesPostData.map(({ icon, text }) => (
-          <InfoWithIcon icon={icon} text={text} key={text} />
-        ))}
+        <InfoWithIcon
+          icon={<FontAwesomeIcon icon={faGithub} />}
+          text={dados.login}
+        />
       </BadgesContainerDefault>
     </InfoCardContainer>
   )

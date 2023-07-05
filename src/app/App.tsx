@@ -3,16 +3,20 @@ import { defaultTheme } from './shared/styles/theme/defaultTheme'
 import { GlobalStyles } from './shared/styles/global'
 import { Router } from './shared/router'
 import { BrowserRouter } from 'react-router-dom'
+import { BlogProvider } from './shared/Context'
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <ThemeProvider theme={defaultTheme}>
-          <GlobalStyles />
-          <Router />
-        </ThemeProvider>
-      </BrowserRouter>
+      {' '}
+      <ThemeProvider theme={defaultTheme}>
+        <BlogProvider>
+          <BrowserRouter>
+            <GlobalStyles />
+            <Router />
+          </BrowserRouter>
+        </BlogProvider>
+      </ThemeProvider>
     </>
   )
 }
