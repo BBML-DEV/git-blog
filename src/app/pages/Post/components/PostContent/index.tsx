@@ -12,6 +12,7 @@ export interface issuesProps {
   body: string
   html_url: string
   comments: number
+  number: number
 }
 
 export const PostContent = () => {

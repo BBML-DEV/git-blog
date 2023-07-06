@@ -15,6 +15,8 @@ import { useBlog } from '../../../../shared/hooks/useContext'
 export const InfoCard = () => {
   const { dados, issues } = useBlog()
 
+  console.log(issues)
+
   return (
     <InfoCardContainer>
       <InfoCardLinks>
@@ -25,7 +27,7 @@ export const InfoCard = () => {
           </div>
         </Link>
 
-        <Link to={issues.html_url}>
+        <Link to={issues.url}>
           <div>
             <p>Ver no github</p>
             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />

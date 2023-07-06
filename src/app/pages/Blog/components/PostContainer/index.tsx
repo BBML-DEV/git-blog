@@ -9,7 +9,7 @@ export const PostContainer = () => {
   return (
     <PostsBlogContainer>
       {issues.map((issue) => (
-        <Link key={issue.id} to={issue.html_url}>
+        <Link key={issue.id} to={`/post/${issue.number}`}>
           <CardPost title={issue.title} body={issue.body} />
         </Link>
       ))}

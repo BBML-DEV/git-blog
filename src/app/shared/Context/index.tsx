@@ -22,7 +22,6 @@ export const BlogProvider = ({ children }: ChildrenProps) => {
       'https://api.github.com/repos/BBML-DEV/git-blog-posts/issues',
     )
     const json = await response.json()
-    console.log(json)
     setIssues(json)
   }
 
