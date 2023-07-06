@@ -1,10 +1,19 @@
 import { createContext, ReactNode, useEffect, useState } from 'react'
 import { profileData } from '../../pages/Blog/components/Profile'
-import { issuesProps } from '../../pages/Post/components/PostContent'
+
+interface issuesProps {
+  id: string
+  title: string
+  body: string
+  html_url: string
+  comments: number
+  number: number
+}
 
 interface BlogContextProps {
   dados: profileData
   issues: issuesProps[]
+  getSingleIssue: (id: number) => Promise<any>
 }
 
 interface ChildrenProps {
@@ -31,13 +40,22 @@ export const BlogProvider = ({ children }: ChildrenProps) => {
     setDados(json)
   }
 
+  async function getSingleIssue(id: number) {
+    const response = await fetch(
+      `https://api.github.com/repos/bbml-dev/git-blog-posts/issues/${id}`,
+    )
+
+    const data = response.json()
+    return data
+  }
+
   useEffect(() => {
     getProfileData()
     getIssues()
   }, [])
 
   return (
-    <BlogContext.Provider value={{ dados, issues }}>
+    <BlogContext.Provider value={{ dados, issues, getSingleIssue }}>
       {children}
     </BlogContext.Provider>
   )

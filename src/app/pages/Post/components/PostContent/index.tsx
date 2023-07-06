@@ -1,35 +1,21 @@
 import { RegularText } from '../../../../shared/components/Typograph/styled'
-import { useBlog } from '../../../../shared/hooks/useContext'
 import {
   PostContentCode,
   PostContentContainer,
   PostContentDescription,
 } from './styled'
+import { SinglePostProps } from '../../index'
 
-export interface issuesProps {
-  id: string
-  title: string
-  body: string
-  html_url: string
-  comments: number
-  number: number
+type ContentPostProps = {
+  post: SinglePostProps
 }
 
-export const PostContent = () => {
-  const { issues } = useBlog()
-
+export const PostContent = ({ post }: ContentPostProps) => {
   return (
     <PostContentContainer>
       <PostContentDescription>
         <RegularText size="m" color="text">
-          <strong>
-            Programming languages all have built-in data structures, but these
-            often differ from one language to another.
-          </strong>
-          This article attempts to list the built-in data structures available
-          in JavaScript and what properties they have. These can be used to
-          build other data structures. Wherever possible, comparisons with other
-          languages are drawn.
+          {post.body}
         </RegularText>
 
         <RegularText size="m" color="text">

@@ -11,11 +11,14 @@ import { InfoWithIcon } from '../../../../shared/components/InfoWithIcon'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { Link } from 'react-router-dom'
 import { useBlog } from '../../../../shared/hooks/useContext'
+import { SinglePostProps } from '../../index'
 
-export const InfoCard = () => {
-  const { dados, issues } = useBlog()
+type InfoPostProps = {
+  post: SinglePostProps
+}
 
-  console.log(issues)
+export const InfoCard = ({ post }: InfoPostProps) => {
+  const { dados } = useBlog()
 
   return (
     <InfoCardContainer>
@@ -27,7 +30,7 @@ export const InfoCard = () => {
           </div>
         </Link>
 
-        <Link to={issues.url}>
+        <Link to={post.html_url}>
           <div>
             <p>Ver no github</p>
             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
@@ -36,7 +39,7 @@ export const InfoCard = () => {
       </InfoCardLinks>
 
       <TittleText size="l" color="title">
-        {issues.title}
+        {post.title}
       </TittleText>
 
       <BadgesContainerDefault>
@@ -44,13 +47,13 @@ export const InfoCard = () => {
           icon={<FontAwesomeIcon icon={faGithub} />}
           text={dados.login}
         />
-        {issues.comments > 0 ? (
+        {post.comments > 0 ? (
           <InfoWithIcon
             icon={<FontAwesomeIcon icon={faComment} />}
             text={
-              issues.comments === 1
-                ? `${issues.comments} comentário`
-                : `${issues.comments} comentários`
+              post.comments === 1
+                ? `${post.comments} comentário`
+                : `${post.comments} comentários`
             }
           />
         ) : null}
