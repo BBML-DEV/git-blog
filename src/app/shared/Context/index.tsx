@@ -1,13 +1,12 @@
 import { createContext, ReactNode, useEffect, useState } from 'react'
 import { profileData } from '../../pages/Blog/components/Profile'
+import { api } from '../libs/axios'
 
 interface issuesProps {
   id: string
   title: string
   body: string
-  html_url: string
-  comments: number
-  number: number
+  created_at: string
 }
 
 interface BlogContextProps {
@@ -27,26 +26,18 @@ export const BlogProvider = ({ children }: ChildrenProps) => {
   const [issues, setIssues] = useState<Array<issuesProps>>([])
 
   async function getIssues() {
-    const response = await fetch(
-      'https://api.github.com/repos/BBML-DEV/git-blog-posts/issues',
-    )
-    const json = await response.json()
-    setIssues(json)
+    const response = await api.get('repos/BBML-DEV/git-blog-posts/issues')
+    setIssues(response.data)
   }
 
   async function getProfileData() {
-    const response = await fetch('https://api.github.com/users/BBML-DEV')
-    const json = await response.json()
-    setDados(json)
+    const response = await api.get('users/BBML-DEV')
+    setDados(response.data)
   }
 
   async function getSingleIssue(id: number) {
-    const response = await fetch(
-      `https://api.github.com/repos/bbml-dev/git-blog-posts/issues/${id}`,
-    )
-
-    const data = response.json()
-    return data
+    const response = await api.get(`repos/bbml-dev/git-blog-posts/issues/${id}`)
+    return response.data
   }
 
   useEffect(() => {
