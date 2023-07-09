@@ -17,15 +17,6 @@ export const PostContent = ({ post }: ContentPostProps) => {
         <RegularText size="m" color="text">
           {post.body}
         </RegularText>
-
-        <RegularText size="m" color="text">
-          <a href="#">Dynamic typing</a>
-          <br />
-          JavaScript is a loosely typed and dynamic language. Variables in
-          JavaScript are not directly associated with any particular value type,
-          and any variable can be assigned (and re-assigned) values of all
-          types:
-        </RegularText>
       </PostContentDescription>
 
       <PostContentCode>

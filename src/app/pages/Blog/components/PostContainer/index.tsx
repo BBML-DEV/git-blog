@@ -2,17 +2,44 @@ import { Link } from 'react-router-dom'
 import { useBlog } from '../../../../shared/hooks/useContext'
 import { CardPost } from './components/CardPost'
 import { PostsBlogContainer } from './styled'
+import { useEffect } from 'react'
 
 export const PostContainer = () => {
-  const { issues } = useBlog()
+  const { issues, filterItem, setFilterItem, item } = useBlog()
+
+  useEffect(() => {
+    setFilterItem(
+      issues.filter((post) =>
+        post.title.toLowerCase().includes(item.toLowerCase()),
+      ),
+    )
+  }, [item])
 
   return (
     <PostsBlogContainer>
-      {issues.map((issue) => (
-        <Link key={issue.id} to={`/post/${issue.number}`}>
-          <CardPost title={issue.title} body={issue.body} />
-        </Link>
-      ))}
+      {item.length > 0
+        ? filterItem.map((issue) => {
+            return (
+              <Link key={issue.id} to={`/post/${issue.number}`}>
+                <CardPost
+                  title={issue.title}
+                  body={issue.body}
+                  date={issue.created_at}
+                />
+              </Link>
+            )
+          })
+        : issues.map((issue) => {
+            return (
+              <Link key={issue.id} to={`/post/${issue.number}`}>
+                <CardPost
+                  title={issue.title}
+                  body={issue.body}
+                  date={issue.created_at}
+                />
+              </Link>
+            )
+          })}
     </PostsBlogContainer>
   )
 }

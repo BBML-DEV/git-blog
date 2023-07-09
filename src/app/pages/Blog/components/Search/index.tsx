@@ -6,7 +6,7 @@ import { SearchContainer } from './styled'
 import { useBlog } from '../../../../shared/hooks/useContext'
 
 export const Search = () => {
-  const { issues } = useBlog()
+  const { issues, item, setItem, filterItem } = useBlog()
 
   return (
     <SearchContainer>
@@ -15,13 +15,22 @@ export const Search = () => {
           Publicações
         </TittleText>
         <RegularText size="s" color="span">
-          {issues.length > 1
+          {filterItem
+            ? filterItem.length > 1
+              ? `${filterItem.length} Publicações`
+              : `${filterItem.length} Publicação`
+            : issues.length > 1
             ? `${issues.length} Publicações`
             : `${issues.length} Publicação`}
         </RegularText>
       </div>
 
-      <input type="text" placeholder="Buscar conteúdo" />
+      <input
+        type="text"
+        placeholder="Buscar conteúdo"
+        value={item}
+        onChange={(e) => setItem(e.target.value)}
+      />
     </SearchContainer>
   )
 }
