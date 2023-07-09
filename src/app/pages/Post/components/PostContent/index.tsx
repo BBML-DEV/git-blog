@@ -1,10 +1,6 @@
-import { RegularText } from '../../../../shared/components/Typograph/styled'
-import {
-  PostContentCode,
-  PostContentContainer,
-  PostContentDescription,
-} from './styled'
+import { PostContentContainer } from './styled'
 import { SinglePostProps } from '../../index'
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 
 type ContentPostProps = {
   post: SinglePostProps
@@ -13,17 +9,7 @@ type ContentPostProps = {
 export const PostContent = ({ post }: ContentPostProps) => {
   return (
     <PostContentContainer>
-      <PostContentDescription>
-        <RegularText size="m" color="text">
-          {post.body}
-        </RegularText>
-      </PostContentDescription>
-
-      <PostContentCode>
-        <p>let foo = 42</p>
-        <p>foo = "bar"</p>
-        <p>foo = true</p>
-      </PostContentCode>
+      <ReactMarkdown children={post.body}></ReactMarkdown>
     </PostContentContainer>
   )
 }
