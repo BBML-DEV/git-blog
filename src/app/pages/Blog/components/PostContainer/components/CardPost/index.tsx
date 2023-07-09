@@ -4,6 +4,7 @@ import {
 } from '../../../../../../shared/components/Typograph/styled'
 import { CardPostContainer, PostTittleContainer } from './styled'
 import { formatted } from '../../../../../../shared/utils/formattedDate'
+
 interface CardPostProps {
   title: string
   body: string

@@ -8,22 +8,22 @@ import React, {
 import { profileData } from '../../pages/Blog/components/Profile'
 import { api } from '../libs/axios'
 
-interface issuesProps {
-  id: string
+export interface IssuesProps {
+  id?: string
   title: string
   body: string
-  created_at: string
+  createdAt: string
 }
 
 interface BlogContextProps {
   dados: profileData
-  issues: issuesProps[]
+  issues: IssuesProps[]
   getSingleIssue: (id: number) => Promise<any>
-  setIssues: React.Dispatch<SetStateAction<issuesProps[]>>
+  setIssues: React.Dispatch<SetStateAction<IssuesProps[]>>
   item: string
   setItem: React.Dispatch<React.SetStateAction<string>>
-  filterItem: issuesProps[]
-  setFilterItem: React.Dispatch<SetStateAction<issuesProps[]>>
+  filterItem: IssuesProps[]
+  setFilterItem: React.Dispatch<SetStateAction<IssuesProps[]>>
 }
 
 interface ChildrenProps {
@@ -34,9 +34,9 @@ export const BlogContext = createContext({} as BlogContextProps)
 
 export const BlogProvider = ({ children }: ChildrenProps) => {
   const [dados, setDados] = useState({} as profileData)
-  const [issues, setIssues] = useState<Array<issuesProps>>([])
+  const [issues, setIssues] = useState<Array<IssuesProps>>([])
   const [item, setItem] = useState('')
-  const [filterItem, setFilterItem] = useState<Array<issuesProps>>([])
+  const [filterItem, setFilterItem] = useState<Array<IssuesProps>>([])
 
   async function getIssues() {
     const response = await api.get('repos/BBML-DEV/git-blog-posts/issues')

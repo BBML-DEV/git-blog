@@ -4,12 +4,10 @@ import { PostContent } from './components/PostContent'
 import { InfoPostsContainer } from './styled'
 import { useBlog } from '../../shared/hooks/useContext'
 import { useCallback, useEffect, useState } from 'react'
+import { IssuesProps } from '../../shared/context/index'
 
-export interface SinglePostProps {
-  title?: string
+export interface SinglePostProps extends IssuesProps {
   html_url?: string
-  body?: string
-  created_at?: string
   comments?: string
   login: string
 }
@@ -33,7 +31,7 @@ export const Post = () => {
   return (
     <InfoPostsContainer className="container">
       <InfoCard post={post} />
-      <PostContent post={post} />
+      <PostContent content={post.body} />
     </InfoPostsContainer>
   )
 }
