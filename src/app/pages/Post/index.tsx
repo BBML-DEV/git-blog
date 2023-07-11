@@ -8,7 +8,7 @@ import { BlogContextProps, IssuesProps } from '../../shared/Context/index'
 
 export interface SinglePostProps extends IssuesProps {
   html_url: string
-  comments: string | Number
+  comments: number
   login: string
   body: string
   title: string
@@ -29,7 +29,6 @@ export const Post = () => {
     getSinglePost()
   }, [getSinglePost])
 
-  console.log(post)
   return (
     <InfoPostsContainer className="container">
       <InfoCard post={post} />
