@@ -12,13 +12,14 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { Link } from 'react-router-dom'
 import { useBlog } from '../../../../shared/hooks/useContext'
 import { SinglePostProps } from '../../index'
+import { BlogContextProps } from '../../../../shared/context'
 
 type InfoPostProps = {
   post: SinglePostProps
 }
 
 export const InfoCard = ({ post }: InfoPostProps) => {
-  const { dados } = useBlog()
+  const { dados } = useBlog() as unknown as BlogContextProps
 
   return (
     <InfoCardContainer>

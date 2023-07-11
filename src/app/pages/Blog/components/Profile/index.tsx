@@ -17,6 +17,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { useBlog } from '../../../../shared/hooks/useContext'
 import { Link } from 'react-router-dom'
+import { BlogContextProps } from '../../../../shared/context'
 
 export interface profileData {
   name: string
@@ -27,7 +28,7 @@ export interface profileData {
 }
 
 export const Profile = () => {
-  const { dados } = useBlog()
+  const { dados } = useBlog() as unknown as BlogContextProps
 
   return (
     <ProfileContainer>
