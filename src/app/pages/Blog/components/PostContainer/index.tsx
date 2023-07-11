@@ -3,9 +3,11 @@ import { useBlog } from '../../../../shared/hooks/useContext'
 import { CardPost } from './components/CardPost'
 import { PostsBlogContainer } from './styled'
 import { useEffect } from 'react'
+import { BlogContextProps } from '../../../../shared/context'
 
 export const PostContainer = () => {
-  const { issues, filterItem, setFilterItem, item } = useBlog()
+  const { issues, filterItem, setFilterItem, item } =
+    useBlog() as unknown as BlogContextProps
 
   useEffect(() => {
     setFilterItem(

@@ -15,7 +15,7 @@ export interface IssuesProps {
   createdAt: string
 }
 
-interface BlogContextProps {
+export interface BlogContextProps {
   dados: profileData
   issues: IssuesProps[]
   getSingleIssue: (id: number) => Promise<any>
