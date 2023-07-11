@@ -17,7 +17,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { useBlog } from '../../../../shared/hooks/useContext'
 import { Link } from 'react-router-dom'
-import { BlogContextProps } from '../../../../shared/context'
+import { BlogContextProps } from '../../../../shared/Context'
 
 export interface profileData {
   name: string

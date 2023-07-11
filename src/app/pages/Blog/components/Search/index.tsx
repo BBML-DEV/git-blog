@@ -4,7 +4,7 @@ import {
 } from '../../../../shared/components/Typograph/styled'
 import { SearchContainer } from './styled'
 import { useBlog } from '../../../../shared/hooks/useContext'
-import { BlogContextProps } from '../../../../shared/context'
+import { BlogContextProps } from '../../../../shared/Context'
 
 export const Search = () => {
   const { issues, item, setItem, filterItem } =

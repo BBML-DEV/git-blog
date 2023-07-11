@@ -12,7 +12,8 @@ export interface IssuesProps {
   id?: string
   title: string
   body: string
-  createdAt: string
+  created_at: string
+  number: number
 }
 
 export interface BlogContextProps {

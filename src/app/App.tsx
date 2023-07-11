@@ -3,7 +3,7 @@ import { defaultTheme } from './shared/styles/theme/defaultTheme'
 import { GlobalStyles } from './shared/styles/global'
 import { Router } from './shared/router'
 import { BrowserRouter } from 'react-router-dom'
-import { BlogProvider } from './shared/context'
+import { BlogProvider } from './shared/Context'
 
 function App() {
   return (

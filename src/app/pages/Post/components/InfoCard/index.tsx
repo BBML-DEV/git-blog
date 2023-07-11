@@ -12,7 +12,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { Link } from 'react-router-dom'
 import { useBlog } from '../../../../shared/hooks/useContext'
 import { SinglePostProps } from '../../index'
-import { BlogContextProps } from '../../../../shared/context'
+import { BlogContextProps } from '../../../../shared/Context'
 
 type InfoPostProps = {
   post: SinglePostProps

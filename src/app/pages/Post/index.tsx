@@ -4,13 +4,14 @@ import { PostContent } from './components/PostContent'
 import { InfoPostsContainer } from './styled'
 import { useBlog } from '../../shared/hooks/useContext'
 import { useCallback, useEffect, useState } from 'react'
-import { BlogContextProps, IssuesProps } from '../../shared/context/index'
+import { BlogContextProps, IssuesProps } from '../../shared/Context/index'
 
 export interface SinglePostProps extends IssuesProps {
   html_url: string
   comments: string | Number
   login: string
   body: string
+  title: string
 }
 
 export const Post = () => {
